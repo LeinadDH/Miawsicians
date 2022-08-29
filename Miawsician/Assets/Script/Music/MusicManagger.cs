@@ -9,7 +9,8 @@ using UnityEngine.Networking;
 public class MusicManagger : MonoBehaviour
 {
     public static MusicManagger Instance;
-    public static AudioSource audioSource;
+    public AudioSource audioSource;
+    public Lane[] lanes;
     public float songDelayInSeconds;
     public double marginOfError;
 
@@ -53,6 +54,7 @@ public class MusicManagger : MonoBehaviour
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);
 
+        foreach (var lane in lanes) lane.SetTimeStamps(array);
         Invoke(nameof(StartSong), songDelayInSeconds);
     }
 
@@ -63,6 +65,6 @@ public class MusicManagger : MonoBehaviour
 
     public static double GetAudioSourceTime()
     {
-        return (double)audioSource.timeSamples / audioSource.clip.frequency;
+        return (double)Instance.audioSource.timeSamples / Instance.audioSource.clip.frequency;
     }
 }

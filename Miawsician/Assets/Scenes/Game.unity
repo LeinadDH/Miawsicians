@@ -1994,6 +1994,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5db48997eea0944b6f7c2e2f2034cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 2017828277}
+  lanes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   songDelayInSeconds: 0
   marginOfError: 0
   inputDelayInMilisenconds: 0
