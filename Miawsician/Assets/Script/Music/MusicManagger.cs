@@ -32,6 +32,9 @@ public class MusicManagger : MonoBehaviour
     public static MidiFile midiFile;
     void Start()
     {
+        Directory.CreateDirectory(string.Format("{0}", Application.persistentDataPath, "Music"));
+
+
         Instance = this;
         ReadFromFile();
     }
@@ -44,7 +47,8 @@ public class MusicManagger : MonoBehaviour
 
     private void ReadFromFile()
     {
-        midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileName);
+        //midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileName);
+        midiFile = MidiFile.Read(Application.persistentDataPath + "/" + fileName);
         GetDataFromMidi();
     }
 
