@@ -9,6 +9,9 @@ public class Buttons : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public Sprite pressedImage;
     public bool isPressed;
 
+    public Animator animator;
+    public string AnimatorBool;
+
     void Start()
     {
         button = GetComponent<Button>();
@@ -19,11 +22,13 @@ public class Buttons : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         button.image.sprite = pressedImage;
         isPressed = true;
+        animator.SetBool(AnimatorBool, true);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         button.image.sprite = defaultImage;
         isPressed = false;
+        animator.SetBool(AnimatorBool, false);
     }
 }

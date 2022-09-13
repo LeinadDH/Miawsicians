@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
-    public string ScenetoLoad;
+    public string ScenetoLoad, MenuScene;
     public AudioSource audioSource;
     public GameObject canvas;
 
@@ -17,7 +15,11 @@ public class EndGame : MonoBehaviour
     public void Continue()
     {
         audioSource.Play();
-        canvas.SetActive(false);
-        
+        canvas.SetActive(false);    
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(MenuScene);
     }
 }

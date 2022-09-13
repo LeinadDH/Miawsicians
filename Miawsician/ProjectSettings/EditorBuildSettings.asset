@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/FirstScene.unity
+    guid: d3d0494dec1ec1342b2a1bd8ca0c9e2d
+  - enabled: 1
+    path: Assets/Scenes/SonataNo14.unity
     guid: a7efac3f0da73e7439004acd29203987
+  - enabled: 1
+    path: Assets/Scenes/Character.unity
+    guid: a7873103063620b4f873f55000f7033c
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b97be9c1d1ddddc46b878c7456280ea1
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2e268a3435167bf4797f25b6222c213e
+  - enabled: 1
+    path: Assets/Scenes/Flight.unity
+    guid: ea84712232517f7458166af32f00a776
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: ddb44ed49d1e25846a20ee56eb3b1219, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: a6a0ae2e74cfab1428cded4ce80e453f, type: 2}
