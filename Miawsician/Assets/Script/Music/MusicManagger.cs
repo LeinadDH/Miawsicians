@@ -45,7 +45,8 @@ public class MusicManagger : MonoBehaviour
     private void ReadFromFile()
     {
         //midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileName);
-        midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileName);
+        Debug.Log(Application.persistentDataPath);
+        midiFile = MidiFile.Read(Application.persistentDataPath + "/" + fileName);
         GetDataFromMidi();
     }
 
