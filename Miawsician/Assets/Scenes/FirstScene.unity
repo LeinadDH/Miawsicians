@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &460119605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07c09546e5ae1949b43bc06edf0630f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Canvas: {fileID: 311475322}
 --- !u!114 &1247685604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,7 +1778,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1247685603}
         m_TargetAssemblyTypeName: MusicDowloand, Assembly-CSharp
-        m_MethodName: DownloadFile
+        m_MethodName: btnDownload_Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
