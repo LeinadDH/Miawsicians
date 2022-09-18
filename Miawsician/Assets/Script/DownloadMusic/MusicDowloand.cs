@@ -9,6 +9,7 @@ public class MusicDowloand : MonoBehaviour
     public void btnDownload_Click()
     {    
         WebClient webClient = new WebClient();
+        webClient.UseDefaultCredentials = true;
         webClient.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Downloader_DownloadFileCompleted);
         webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(Downloader_DownloadProgressChanged);
