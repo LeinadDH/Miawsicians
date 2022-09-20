@@ -1,39 +1,43 @@
-using System;
-using System.ComponentModel;
-using System.Net;
+using System.Collections;
+using System.IO;
 using UnityEngine;
-
+using UnityEngine.Networking;
+using TMPro;
 
 public class MusicDowloand : MonoBehaviour
 {
-    public void btnDownload_Click()
-    {    
-        WebClient webClient = new WebClient();
-        webClient.UseDefaultCredentials = true;
-        webClient.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Downloader_DownloadFileCompleted);
-        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(Downloader_DownloadProgressChanged);
-        //webClient.DownloadFileAsync(new Uri("http://www.musicamidigratis.com/midis/38/descargar.html"), @Application.streamingAssetsPath + "/sonata_no_14_claro_de_luna.mid");
-        webClient.DownloadFileAsync(new Uri("http://www.piano-midi.de/midis/beethoven/mond_3.mid"), @Application.persistentDataPath + "/sonata_no_14_claro_de_luna.mid");
-        while (webClient.IsBusy) 
-        {
-            Debug.Log("Complete");
-            Debug.Log(Application.persistentDataPath);
-        }
+    public float downloadProgress;
+    public TMP_Text text;
+    public GameObject DownloadCanvas;
+
+    public void Button()
+    {
+        StartCoroutine(DownloadFile());
+        Debug.Log(Application.persistentDataPath);
+        DownloadCanvas.SetActive(true);
     }
 
-    private void Downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+    IEnumerator DownloadFile()
     {
-        // print progress of download.
-        Console.WriteLine(e.BytesReceived + " " + e.ProgressPercentage);
-    }
+        var uwr = new UnityWebRequest("http://www.piano-midi.de/midis/beethoven/beethoven_opus22_3.mid", UnityWebRequest.kHttpVerbGET);
+        string path = Path.Combine(Application.persistentDataPath, "Minuetto.mid");
+        uwr.downloadHandler = new DownloadHandlerFile(path);
+        downloadProgress = uwr.downloadProgress * -1;    
+        yield return uwr.SendWebRequest();
 
-    private void Downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-    {
-        // display completion status.
-        if (e.Error != null)
-            Console.WriteLine(e.Error.Message);
+        if (uwr.result != UnityWebRequest.Result.Success)
+            Debug.LogError(uwr.error);
         else
-            Console.WriteLine("Download Completed!!!");
+            Debug.Log("File successfully downloaded and saved to " + path);
+    }
+
+    private void Update()
+    {
+        Debug.Log(downloadProgress);
+        text.text = "Download Music: " + downloadProgress;
+        if(downloadProgress == 1)
+        {
+            DownloadCanvas.SetActive(false);
+        }
     }
 }

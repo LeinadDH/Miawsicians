@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 737389832}
+    - target: {fileID: 1214792042971505719, guid: 250bd175e77ccf244ba51494fc06fb04, type: 3}
+      propertyPath: fileName
+      value: Minuetto.mid
+      objectReference: {fileID: 0}
     - target: {fileID: 1214792043314531593, guid: 250bd175e77ccf244ba51494fc06fb04, type: 3}
       propertyPath: button
       value: 
@@ -363,6 +367,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 763648494}
+    - target: {fileID: 1214792043698995454, guid: 250bd175e77ccf244ba51494fc06fb04, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8882806c42b0c1459250a71bd8f75f4, type: 3}
     - target: {fileID: 1530115554020900464, guid: 250bd175e77ccf244ba51494fc06fb04, type: 3}
       propertyPath: m_RootOrder
       value: 2
