@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,5 +22,20 @@ public class EndGame : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(MenuScene);
+    }
+
+    private void Update()
+    {
+        if(!audioSource.isPlaying)
+        {
+            //StartCoroutine(BackMenu());
+        }
+    }
+
+    IEnumerator BackMenu()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(MenuScene);
+        StopCoroutine(BackMenu());
     }
 }

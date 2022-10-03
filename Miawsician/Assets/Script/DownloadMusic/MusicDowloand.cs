@@ -35,7 +35,13 @@ public class MusicDowloand : MonoBehaviour
     {
         Debug.Log(downloadProgress);
         text.text = "Download Music: " + downloadProgress;
-        if(downloadProgress == 1)
+        if (downloadProgress == 1)
+        {
+            DownloadCanvas.SetActive(false);
+        }
+
+        string file = Path.Combine(Application.persistentDataPath, "Minuetto.mid");
+        if (File.Exists(file))
         {
             DownloadCanvas.SetActive(false);
         }

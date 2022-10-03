@@ -57,6 +57,7 @@ public class MusicManagger : MonoBehaviour
         notes.CopyTo(array, 0);
 
         foreach (var lane in lanes) lane.SetTimeStamps(array);
+
         Invoke(nameof(StartSong), songDelayInSeconds);
     }
 
