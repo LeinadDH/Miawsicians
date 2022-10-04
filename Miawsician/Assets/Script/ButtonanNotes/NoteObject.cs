@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NoteObject : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject button;
     Buttons buttons;
-    public bool canClick = false;
-    public bool hold = false;
     public AudioSource audioSource;
+    private bool canhold = false;
 
     private void Start()
     {
@@ -21,17 +21,9 @@ public class NoteObject : MonoBehaviour
 
     private void Update()
     {
-        if(buttons.isPressed)
+        if (buttons.isPressed && !canhold)
         {
-            if (!canClick)
-            {
-                audioSource.Pause();
-                canvas.SetActive(true);
-            }
-        }
-        if (!hold && buttons.isPressed)
-        {
-            StartCoroutine(DontHoldTheButton());
+            buttons.isPressed = false;
         }
     }
 
@@ -39,11 +31,9 @@ public class NoteObject : MonoBehaviour
     {
         if(other.tag == "Note")
         {
-            hold = true;
-            canClick = true;
-            if (buttons.isPressed)
+            canhold = true;
+            if (buttons.isPressed && canhold)
             {
-                //ScoreManagger.Hit();
                 Destroy(other.gameObject);
             }
         }
@@ -51,14 +41,6 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hold = false;
+        canhold = false;
     }
-
-    IEnumerator DontHoldTheButton()
-    {
-        yield return new WaitForSeconds(2);
-        canClick = false;
-    }
-
-
 }
