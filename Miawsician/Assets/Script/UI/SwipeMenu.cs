@@ -6,12 +6,12 @@ public class SwipeMenu : MonoBehaviour
     public GameObject scrollbar;
     float scrollPos = 0;
     float[] pos;
+
     void Start()
     {
-        
+        scrollPos = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         pos = new float[transform.childCount];
@@ -49,5 +49,25 @@ public class SwipeMenu : MonoBehaviour
                 }
             }
         }
+
     }
+
+    public void LeftButton()
+    {
+        float i = scrollPos;
+        if (scrollPos > 0 && scrollPos == i)
+        {
+            scrollPos = scrollPos - 0.2f;
+        }
+    }
+
+    public void RightButton()
+    {
+        float i = scrollPos;
+        if (scrollPos < pos.Length && scrollPos == i)
+        {
+            scrollPos = i + 0.2f;
+        }
+    }
+
 }

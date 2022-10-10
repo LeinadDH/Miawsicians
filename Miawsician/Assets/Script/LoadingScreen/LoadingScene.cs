@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour
 {
-    public GameObject LoadingScreen;
+    public GameObject LoadingScreen, PauseScreen, EndScreen;
     public Slider loadingFill;
 
     public void LoadScene(int sceneid)
@@ -18,6 +18,8 @@ public class LoadingScene : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneid);
 
+        PauseScreen.SetActive(false);
+        EndScreen.SetActive(false);
         LoadingScreen.SetActive(true);
 
         while(!operation.isDone)

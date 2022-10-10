@@ -6,17 +6,36 @@ public class EndGame : MonoBehaviour
 {
     public string ScenetoLoad, MenuScene;
     public AudioSource audioSource;
-    public GameObject canvas;
+    public GameObject LostCanvas, PauseCanvas, LoadinCanvas, timerCanvas, ASObject;
+    private bool pause = false;
 
-    public void TryAgain()
+    private Timer timer;
+
+    private void Start()
     {
-        SceneManager.LoadScene(ScenetoLoad);
+        ASObject.SetActive(false);
+        timer = gameObject.GetComponent<Timer>();
+        LostCanvas.SetActive(false);
+        PauseCanvas.SetActive(false);
+        LoadinCanvas.SetActive(false);
+        timerCanvas.SetActive(true);
+        timer.StartTime();
+    }
+
+    private void Update()
+    {
+        if (!audioSource.isPlaying && !pause && ASObject.activeInHierarchy)
+        {
+            SceneManager.LoadScene(MenuScene);
+        }
     }
 
     public void Continue()
     {
-        audioSource.Play();
-        canvas.SetActive(false);    
+        timer.StartTime();
+        timerCanvas.SetActive(true);
+        LostCanvas.SetActive(false);    
+        PauseCanvas.SetActive(false);
     }
 
     public void Menu()
@@ -24,18 +43,10 @@ public class EndGame : MonoBehaviour
         SceneManager.LoadScene(MenuScene);
     }
 
-    private void Update()
+    public void Pause()
     {
-        if(!audioSource.isPlaying)
-        {
-            //StartCoroutine(BackMenu());
-        }
-    }
-
-    IEnumerator BackMenu()
-    {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(MenuScene);
-        StopCoroutine(BackMenu());
+        pause = true;
+        PauseCanvas.SetActive(true);
+        audioSource.Pause();
     }
 }

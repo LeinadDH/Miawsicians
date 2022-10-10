@@ -8,10 +8,10 @@ using UnityEngine.Networking;
 
 public class MusicManagger : MonoBehaviour
 {
+    public Timer timer;
     public static MusicManagger Instance;
     public AudioSource audioSource;
     public Lane[] lanes;
-    public float songDelayInSeconds;
     public double marginOfError;
 
     public int inputDelayInMilisenconds;
@@ -36,15 +36,8 @@ public class MusicManagger : MonoBehaviour
         ReadFromFile();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void ReadFromFile()
     {
-        //midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileName);
         Debug.Log(Application.persistentDataPath);
         midiFile = MidiFile.Read(Application.persistentDataPath + "/" + fileName);
         GetDataFromMidi();
@@ -57,13 +50,6 @@ public class MusicManagger : MonoBehaviour
         notes.CopyTo(array, 0);
 
         foreach (var lane in lanes) lane.SetTimeStamps(array);
-
-        Invoke(nameof(StartSong), songDelayInSeconds);
-    }
-
-    public void StartSong()
-    {
-        audioSource.Play();
     }
 
     public static double GetAudioSourceTime()
