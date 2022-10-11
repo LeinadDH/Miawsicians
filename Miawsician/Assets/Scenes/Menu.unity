@@ -3263,6 +3263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollbar: {fileID: 1566794142}
+  leftButton: {fileID: 1114549720}
+  rightButton: {fileID: 1259577799}
+  scrollPos: 0
+  pos: []
 --- !u!1 &1913962619
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,16 @@ using UnityEngine.UI;
 
 public class SwipeMenu : MonoBehaviour
 {
-    public GameObject scrollbar;
-    float scrollPos = 0;
-    float[] pos;
+    public GameObject scrollbar, leftButton, rightButton;
+    public float scrollPos = 0;
+    public float[] pos;
+
+    private int index = 0;
 
     void Start()
     {
         scrollPos = 0;
+        UpdateButtons();
     }
 
     void Update()
@@ -49,25 +52,51 @@ public class SwipeMenu : MonoBehaviour
                 }
             }
         }
-
     }
 
     public void LeftButton()
     {
         float i = scrollPos;
+        index--;
         if (scrollPos > 0 && scrollPos == i)
         {
             scrollPos = scrollPos - 0.2f;
         }
+        UpdateButtons();
     }
 
     public void RightButton()
     {
         float i = scrollPos;
+        index++;
         if (scrollPos < pos.Length && scrollPos == i)
         {
             scrollPos = i + 0.2f;
         }
+        UpdateButtons();
     }
+
+    private void UpdateButtons()
+    {
+        if (index == 0)
+        {
+            leftButton.SetActive(false);
+        }
+        else
+        {
+            leftButton.SetActive(true);
+        }
+
+        if (index == 3)
+        {
+            rightButton.SetActive(false);
+        }
+        else
+        {
+            rightButton.SetActive(true);
+        }
+    }
+
+
 
 }

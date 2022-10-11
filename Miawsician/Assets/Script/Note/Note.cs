@@ -12,7 +12,7 @@ public class Note : MonoBehaviour
         timeInstantiated = MusicManagger.GetAudioSourceTime();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         double timeSinceInstantiated = MusicManagger.GetAudioSourceTime() - timeInstantiated;
         float t = (float)(timeSinceInstantiated / (MusicManagger.Instance.noteTime * 2));
@@ -23,7 +23,7 @@ public class Note : MonoBehaviour
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(Vector3.up * MusicManagger.Instance.noteSpawnY, Vector3.up * MusicManagger.Instance.noteDespawnY, t);
+            transform.localPosition = Vector3.Lerp(Vector3.up * MusicManagger.Instance.noteSpawnY, Vector3.up * MusicManagger.Instance.noteDespawnY, t) * Time.deltaTime * 18;
         }
     }
 }
