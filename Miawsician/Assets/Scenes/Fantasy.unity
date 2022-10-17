@@ -214,6 +214,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1878453100831364943, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
+      propertyPath: noteRestriction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878453100907658268, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
+      propertyPath: noteRestriction
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1878453101090403488, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -278,9 +286,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1878453102029366181, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
+      propertyPath: noteRestriction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878453102523180374, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
+      propertyPath: noteRestriction
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1878453102665122759, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
       propertyPath: fileName
       value: Fantasie.mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878453102665122759, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}
+      propertyPath: noteTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21a154056c3fec743b5b174c0e6d4326, type: 3}

@@ -23,7 +23,7 @@ public class Note : MonoBehaviour
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(Vector3.up * MusicManagger.Instance.noteSpawnY, Vector3.up * MusicManagger.Instance.noteDespawnY, t) * Time.deltaTime * 18;
+            transform.localPosition = Vector3.Lerp(Vector3.up * MusicManagger.Instance.noteSpawnY, Vector3.up * MusicManagger.Instance.noteDespawnY, t) * Time.deltaTime * 23;
         }
     }
 }
