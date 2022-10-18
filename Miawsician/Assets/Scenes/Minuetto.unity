@@ -2550,12 +2550,12 @@ MonoBehaviour:
   - {fileID: 1804556574}
   - {fileID: 887834279}
   - {fileID: 1428185069}
-  marginOfError: 0.07
-  inputDelayInMilisenconds: 0
+  marginOfError: 1
+  inputDelayInMilisenconds: 10000
   fileName: Minuetto.mid
-  noteTime: 3
+  noteTime: 2
   noteSpawnY: 0
-  noteTapY: -25
+  noteTapY: -6
 --- !u!4 &1303017853
 Transform:
   m_ObjectHideFlags: 0
